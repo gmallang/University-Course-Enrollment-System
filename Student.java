@@ -76,3 +76,40 @@ public class Student extends Person {
            return false;
        }
    }
+      public void completeCourse(String courseCode) {
+       completedCourses.add(courseCode);
+   }
+
+
+   public boolean meetsPrerequisites(Course course) {
+       for (String prereq : course.getPrerequisites()) {
+           if (!completedCourses.contains(prereq)) {
+               return false;  // Missing prerequisite
+           }
+       }
+       return true; 
+   }
+
+
+   public void display() {
+       super.display();
+       System.out.println("Major: " + major);
+       System.out.println("GPA: " + gpa);
+       System.out.println("Credits: " + credits);
+       System.out.println("Balance: $" + balance);
+       System.out.println("Transfer: " + (transfer ? "Yes" : "No"));
+
+
+       System.out.println("\nEnrolled Courses:");
+       for (Course course : enrolledCourses) {
+           course.display();
+       }
+
+
+       System.out.println("\nCompleted Courses:");
+       for (String course : completedCourses) {
+           System.out.println("- " + course);
+       }
+   }
+}
+
