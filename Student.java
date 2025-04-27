@@ -27,7 +27,7 @@ public class Student extends Person {
    public boolean conflictsWith(Course newCourse) {
        for (Course existing : enrolledCourses) {
            if (isTimeConflict(existing, newCourse)) {
-               System.out.println("⚠️ Time conflict with " + existing.getName());
+               System.out.println("⚠Time conflict with " + existing.getName());
                return true;
            }
        }
@@ -69,10 +69,10 @@ public class Student extends Person {
    public boolean addCourse(Course course) {
        if (!conflictsWith(course)) {
            enrolledCourses.add(course);
-           System.out.println("✅ Enrolled in: " + course.getName());
+           System.out.println("Enrolled in: " + course.getName());
            return true;
        } else {
-           System.out.println("❌ Could not enroll due to time conflict.");
+           System.out.println("Could not enroll due to time conflict.");
            return false;
        }
    }
